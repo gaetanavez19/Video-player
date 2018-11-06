@@ -1,0 +1,305 @@
+@font-face {
+	font-family: "futura";
+	src: url('style/VFutura-Heavy.ttf');
+}
+body{
+    background: linear-gradient(to right, #21144D 0%, #23015D 35%, #700386 100%);
+    margin-top: 5%;
+}
+
+.player{
+    width: 60%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+video{
+    border-radius: 10px;
+}
+.player .controls{
+    position: relative;
+    padding: 5px;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center 
+}
+
+.player .controls > *{
+    z-index: 10;
+}
+
+
+.player .controls::before{
+    content: '';
+    width: 100%;
+    height: 95%;
+    background-color: white;
+    opacity: 0.25;
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: blur(10px);
+    border-radius: 10px;
+   
+}
+
+.controls .play_pause{
+    background: url(images/play.png) no-repeat;
+    border: none;
+    width: 18px;
+    height: 20px;
+    cursor: pointer;
+    opacity: 0.5;
+    outline: none;
+    background-size: contain;
+
+}
+
+.controls .play_pause:hover {
+    opacity: 1;
+}
+
+.controls .full-screen{
+    background:  url(images/fullScreen.png) no-repeat;
+    border: none;
+    width: 18px;
+    height: 20px;
+    cursor: pointer;
+    opacity: 0.5;
+    outline: none;
+    background-size: contain;
+    margin-right: 2%;
+}
+
+.controls .full-screen:hover {
+    opacity: 1;
+}
+
+.controls .skip {
+    background: url(images/skip.png) no-repeat;
+    border: none;
+    width: 22px;
+    height: 24px;
+    cursor: pointer;
+    opacity: 0.5;
+    outline: none;
+    background-size: contain;
+    margin-left: -15px;
+
+}
+
+.controls .skip:hover{
+    opacity: 1;
+}
+
+.controls .mute{
+    background: url(images/unMute.png) no-repeat;
+    border: none;
+    width: 20px;
+    height: 22px;
+    cursor: pointer;
+    opacity: 0.5;
+    outline: none;
+    background-size: contain;
+    margin-left: -20px;
+    opacity: 0.5;
+}
+.controls .mute:hover{
+    opacity: 1;
+}
+
+
+/* SEEK BAR */
+
+.seek
+{
+    position: relative;
+    width: 70%;
+    height: 11px;
+    background: #cccccc;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.seek .fill
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:linear-gradient(to right, #21144D 0%, #23015D 35%, #700386 100%);
+    transform-origin: 0 0;
+    will-change: transform;
+    transform: scaleX(0);
+    border-radius: 20px;
+}
+
+.progressCircle{
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 100%;
+    background: whitesmoke;
+    box-shadow: 0 0 20px black;
+    border-radius: 50%;
+    will-change: transform;
+    transform: translateX(0);
+    z-index: 2;
+}
+
+
+/* SOUND SEEK */
+
+.soundSeek
+{
+    position: relative;
+    width: 60px;
+    height: 11px;
+    background: #cccccc;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-left: -15px;
+    cursor: pointer;
+}
+
+.soundSeek .soundFill
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:linear-gradient(to right, #21144D 0%, #23015D 35%, #700386 100%);
+    transform-origin: 0 0;
+    will-change: transform;
+    transform: scaleX(0);
+    border-radius: 20px;
+}
+
+.soundCircle{
+    position: absolute;
+    top: 0;
+    width: 11px;
+    height: 100%;
+    background: whitesmoke;
+    box-shadow: 0 0 20px black;
+    border-radius: 50%;
+    will-change: transform;
+    transform: translateX(0);
+    z-index: 2;
+}
+
+/*/  INFORMATIONS     /*/
+
+
+.informations{
+    margin: 0 auto;
+    width: 60%;
+    background: whitesmoke;
+    opacity: 0.5;
+    border-radius: 10px;
+    display: none;
+}
+
+.textInformation:not(:first-child){
+    font-size: 80%;
+    font-family: "futura", Helvetica, Arial, sans-serif;
+    padding-right: 1.5%
+}
+
+.posterInformation{
+    width: 15%;
+    height: 15%;
+    padding: 1.5%;
+}
+
+.textInformation .container{
+    display: flex;
+    height: 15%;
+}
+
+.container{
+    margin-top: 1px}
+
+.container .container{
+    justify-content: space-between;
+    width: 23%;
+    margin-left: 7%;  
+}
+
+.container.container p{
+    margin-top: 11%;
+    border: solid black 2px;
+    border-radius: 30px;
+    height: 12px;
+    padding: 1px 5px 5px 6px ;
+}
+
+.informations-button {
+    background: url(images/arrow.png) no-repeat;
+    background-size: contain;
+    border: none;
+    width: 20px;
+    height: 12px;
+    cursor: pointer;
+    opacity: 0.5;
+    margin: 1% 50%;
+    outline: none;
+    animation: transform 250ms ease-in-out;
+}
+
+.informations-button.is-open {
+    transform: rotate(180deg);
+    transition: 250ms;
+}
+
+.informations-button:hover{
+    opacity: 1;
+}
+
+
+video::-webkit-media-controls {
+    display:none !important;
+}
+ 
+.allControls{
+    position: absolute;
+    width: 100%;
+    bottom: -47px;
+    transition: bottom 250ms ease-in-out;
+} 
+
+.player:hover .allControls {
+    bottom: 6px;
+}
+
+.informations.is-open {
+    display: flex;
+}
+
+
+.is-fullscreen {
+    background: black;
+    margin-top: 7%;
+}
+
+.is-fullscreen  .player {
+    overflow: auto;
+    width: 100%;
+}
+
+.is-fullscreen .arrow-infos {
+    display: none;
+}
+
+.is-fullscreen .informations.is-open {
+    display: none;
+}
+
+
